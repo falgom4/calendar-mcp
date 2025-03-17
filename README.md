@@ -49,14 +49,14 @@ A Model Context Protocol (MCP) server for Google Calendar integration in Claude 
    mv gcp-oauth.keys.json ~/.calendar-mcp/
 
    # Run authentication from anywhere
-   npx @falgom4/server-calendar-autoauth-mcp auth
+   npx @nchufa/calendar auth
    ```
 
    b. Local Authentication:
    ```bash
    # Place gcp-oauth.keys.json in your current directory
    # The file will be automatically copied to global config
-   npx @falgom4/server-calendar-autoauth-mcp auth
+   npx @nchufa/calendar auth
    ```
 
    The authentication process will:
@@ -80,7 +80,7 @@ Add the following to your Claude Desktop configuration file:
     "calendar": {
       "command": "npx",
       "args": [
-        "@falgom4/server-calendar-autoauth-mcp"
+        "@nchufa/calendar"
       ]
     }
   }
