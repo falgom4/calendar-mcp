@@ -25,11 +25,11 @@ const CONFIG_DIR = path.join(os.homedir(), '.calendar-mcp');
 const OAUTH_PATH = process.env.CALENDAR_OAUTH_PATH || path.join(CONFIG_DIR, 'gcp-oauth.keys.json');
 const CREDENTIALS_PATH = process.env.CALENDAR_CREDENTIALS_PATH || path.join(CONFIG_DIR, 'credentials.json');
 
-// OAuth2 configuration
-let oauth2Client: OAuth2Client;
-
 // Define time zone for calendar operations
 const DEFAULT_TIMEZONE = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+
+// OAuth2 configuration
+let oauth2Client: OAuth2Client;
 
 async function loadCredentials() {
     try {
@@ -321,12 +321,15 @@ async function main() {
                             `- ${r.method} (${r.minutes} minutes before)`
                         ).join('\n');
                     }
+
+                    // Handle the created date safely
+                    const createdDate = event.created ? new Date(event.created).toLocaleString() : 'Unknown';
                     
                     return {
                         content: [
                             {
                                 type: "text",
-                                text: `Event Details:\nID: ${event.id}\nTitle: ${event.summary}\nStart: ${formatDateTime(event.start)}\nEnd: ${formatDateTime(event.end)}\nLocation: ${event.location || 'Not specified'}\nDescription: ${event.description || 'No description'}\nCreated: ${new Date(event.created).toLocaleString()}${attendeesText}${remindersText}\nLink: ${event.htmlLink}`,
+                                text: `Event Details:\nID: ${event.id}\nTitle: ${event.summary}\nStart: ${formatDateTime(event.start)}\nEnd: ${formatDateTime(event.end)}\nLocation: ${event.location || 'Not specified'}\nDescription: ${event.description || 'No description'}\nCreated: ${createdDate}${attendeesText}${remindersText}\nLink: ${event.htmlLink}`,
                             },
                         ],
                     };
@@ -354,7 +357,7 @@ async function main() {
                         const startDateTime = parseDateTime(validatedArgs.start);
                         updatedEvent.start = {
                             dateTime: startDateTime.toISOString(),
-                            timeZone: currentEvent.data.start.timeZone || DEFAULT_TIMEZONE,
+                            timeZone: currentEvent.data.start?.timeZone || DEFAULT_TIMEZONE,
                         };
                     }
                     
@@ -363,12 +366,12 @@ async function main() {
                         // If start time was updated, use it as reference for end time
                         const referenceTime = validatedArgs.start ? 
                             parseDateTime(validatedArgs.start) : 
-                            new Date(currentEvent.data.start.dateTime);
+                            currentEvent.data.start?.dateTime ? new Date(currentEvent.data.start.dateTime) : new Date();
                             
                         const endDateTime = parseDateTime(validatedArgs.end, referenceTime);
                         updatedEvent.end = {
                             dateTime: endDateTime.toISOString(),
-                            timeZone: currentEvent.data.end.timeZone || DEFAULT_TIMEZONE,
+                            timeZone: currentEvent.data.end?.timeZone || DEFAULT_TIMEZONE,
                         };
                     }
                     
