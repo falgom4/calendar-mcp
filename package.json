@@ -1,0 +1,60 @@
+{
+  "name": "@falgom4/server-calendar-autoauth-mcp",
+  "version": "1.0.0",
+  "description": "Google Calendar MCP server with auto authentication support",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "calendar-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "auth": "node dist/index.js auth",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "calendar",
+    "google-calendar",
+    "mcp",
+    "cursor",
+    "ai",
+    "oauth",
+    "model-context-protocol",
+    "claude",
+    "auto-auth"
+  ],
+  "author": "falgom4",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/falgom4/calendar-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/falgom4/calendar-mcp/issues"
+  },
+  "homepage": "https://github.com/falgom4/calendar-mcp#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.4.0",
+    "googleapis": "^129.0.0",
+    "google-auth-library": "^9.4.1",
+    "open": "^10.0.0",
+    "zod": "^3.22.4",
+    "zod-to-json-schema": "^3.22.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3"
+  }
+}
