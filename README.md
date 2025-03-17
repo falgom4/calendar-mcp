@@ -235,6 +235,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 MIT
 
+## Acknowledgments
+
+Special thanks to [GongRzhe](https://github.com/GongRzhe) and his [Calendar-Autoauth-MCP-Server](https://github.com/GongRzhe/Calendar-Autoauth-MCP-Server) project which served as a foundation for this implementation.
+
 ## Support
 
 If you encounter any issues or have questions, please file an issue on the GitHub repository.
