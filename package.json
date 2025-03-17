@@ -1,5 +1,5 @@
 {
-  "name": "@falgom4/server-calendar-autoauth-mcp",
+  "name": "@nchufa/calendar",
   "version": "1.0.0",
   "description": "Google Calendar MCP server with auto authentication support",
   "type": "module",
@@ -29,16 +29,16 @@
     "claude",
     "auto-auth"
   ],
-  "author": "falgom4",
+  "author": "nchufa",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/falgom4/calendar-mcp.git"
+    "url": "git+https://github.com/nchufa/calendar.git"
   },
   "bugs": {
-    "url": "https://github.com/falgom4/calendar-mcp/issues"
+    "url": "https://github.com/nchufa/calendar/issues"
   },
-  "homepage": "https://github.com/falgom4/calendar-mcp#readme",
+  "homepage": "https://github.com/nchufa/calendar#readme",
   "publishConfig": {
     "access": "public"
   },
