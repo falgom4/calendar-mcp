@@ -1,5 +1,7 @@
 # Google Calendar AutoAuth MCP Server
 
+[![smithery badge](https://smithery.ai/badge/@falgom4/calendar-mcp)](https://smithery.ai/server/@falgom4/calendar-mcp)
+
 A Model Context Protocol (MCP) server for Google Calendar integration in Claude Desktop with auto authentication support. This server enables AI assistants to manage Google Calendar through natural language interactions.
 
 ![](https://badge.mcpx.dev?type=server 'MCP Server')
@@ -20,6 +22,14 @@ A Model Context Protocol (MCP) server for Google Calendar integration in Claude 
 - Global credential storage for convenience
 
 ## Installation & Authentication
+
+### Installing via Smithery
+
+To install Google Calendar Integration Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@falgom4/calendar-mcp):
+
+```bash
+npx -y @smithery/cli install @falgom4/calendar-mcp --client claude
+```
 
 ### Installing Manually
 1. Create a Google Cloud Project and obtain credentials:
